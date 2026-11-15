@@ -1,4 +1,142 @@
+
 @extends('layouts.site')
+
 @section('content')
-<main id="main"><section class="page-banner"><div class="container"><div class="breadcrumbs"><a href="{{ url('/') }}">Home</a><i aria-hidden="true" data-lucide="chevron-right" style="width:15px;height:15px"></i><span>News &amp; Notices</span></div><span class="eyebrow">ATTARIYA HOSPITAL</span><h1>News &amp; Notices</h1><p>Read hospital-related updates from publicly accessible reports.</p></div><div class="banner-ring"></div></section><section class="section"><div class="container"><div class="section-heading"><div><span class="eyebrow">HOSPITAL UPDATES</span><h2>Latest published reports</h2><p>Dates and source attribution are provided for accuracy.</p></div></div><div class="news-grid"><article class="news-card"><div class="news-visual news-visual-0"><i aria-hidden="true" data-lucide="heart-pulse" style="width:48px;height:48px"></i><span>PUBLIC REPORT</span></div><div class="news-body"><time datetime="2025-11-22">2025-11-22</time><h3>Cath Lab service reported at Attariya Hospital</h3><p>Local health news reported the inauguration of a cardiac catheterization service in November 2025.</p><a class="text-link" href="{{ url('/news-1') }}">Read update <i aria-hidden="true" data-lucide="arrow-up-right" style="width:16px;height:16px"></i></a></div></article><article class="news-card"><div class="news-visual news-visual-1"><i aria-hidden="true" data-lucide="newspaper" style="width:48px;height:48px"></i><span>PUBLIC REPORT</span></div><div class="news-body"><time datetime="2026-08-16">2026-08-16</time><h3>Hospital recruitment announcement</h3><p>A public recruitment notice for administrative positions was reported in August 2026. This is archived news, not a current vacancy.</p><a class="text-link" href="{{ url('/news-2') }}">Read update <i aria-hidden="true" data-lucide="arrow-up-right" style="width:16px;height:16px"></i></a></div></article></div></div></section></main>
+<main id="main">
+
+    {{-- PAGE BANNER --}}
+    <section class="page-banner">
+        <div class="container">
+
+            <div class="breadcrumbs">
+                <a href="{{ url('/') }}">Home</a>
+                <i data-lucide="chevron-right"
+                   aria-hidden="true"></i>
+                <span>News & Updates</span>
+            </div>
+
+            <span class="eyebrow">ATTARIYA HOSPITAL</span>
+
+            <h1>News & Updates</h1>
+
+            <p>
+                Discover the latest announcements,
+                hospital updates and health-related news.
+            </p>
+
+        </div>
+
+        <div class="banner-ring"></div>
+    </section>
+
+
+    {{-- DYNAMIC NEWS LISTING --}}
+    <section class="section hospital-news-section">
+        <div class="container">
+
+            @if ($posts->isNotEmpty())
+
+                <div class="hospital-news-grid">
+
+                    @foreach ($posts as $post)
+
+                        <article class="hospital-news-card">
+
+                            {{-- IMAGE / PLACEHOLDER --}}
+                            <a
+                                href="{{ url('/news/' . $post->slug) }}"
+                                class="hospital-news-media"
+                                aria-label="Read {{ $post->title }}"
+                            >
+
+                                @if ($post->image)
+
+                                    <img
+                                        src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($post->image) }}"
+                                        alt="{{ $post->title }}"
+                                        loading="lazy"
+                                        decoding="async"
+                                    >
+
+                                @else
+
+                                    <div class="hospital-news-placeholder">
+                                        <i data-lucide="newspaper"
+                                           aria-hidden="true"></i>
+                                    </div>
+
+                                @endif
+
+                                <span class="hospital-news-category">
+                                    HOSPITAL UPDATE
+                                </span>
+
+                            </a>
+
+
+                            {{-- NEWS DETAILS --}}
+                            <div class="hospital-news-content">
+
+                                <time
+                                    datetime="{{ $post->published_at?->format('Y-m-d') }}"
+                                    class="hospital-news-date"
+                                >
+                                    {{ $post->published_at?->format('d M Y') }}
+                                </time>
+
+                                <h2>
+                                    <a href="{{ url('/news/' . $post->slug) }}">
+                                        {{ $post->title }}
+                                    </a>
+                                </h2>
+
+                                @if ($post->excerpt)
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(
+                                            strip_tags($post->excerpt),
+                                            170
+                                        ) }}
+                                    </p>
+                                @endif
+
+                                <a
+                                    href="{{ url('/news/' . $post->slug) }}"
+                                    class="hospital-news-read"
+                                >
+                                    Read update
+                                    <i data-lucide="arrow-up-right"
+                                       aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    @endforeach
+
+                </div>
+
+
+                {{-- PAGINATION --}}
+                @if ($posts->hasPages())
+                    <div class="hospital-news-pagination">
+                        {{ $posts->links() }}
+                    </div>
+                @endif
+
+            @else
+
+                <div class="hospital-news-empty">
+                    <i data-lucide="newspaper"
+                       aria-hidden="true"></i>
+                    <h2>No news available</h2>
+                    <p>Hospital updates will appear here.</p>
+                </div>
+
+            @endif
+
+        </div>
+    </section>
+
+</main>
 @endsection

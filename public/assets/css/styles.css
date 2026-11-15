@@ -1027,9 +1027,11 @@ textarea:focus-visible {
 }
 .page-banner {
     padding: 64px 0 75px;
-    background: linear-gradient(105deg, #f7fcff, #e9f7fd);
+    /* background: linear-gradient(105deg, #f7fcff, #e9f7fd); */
+    background: url('/assets/images/hospital-banner-original.png');
     position: relative;
     overflow: hidden;
+   
 }
 .page-banner .container {
     position: relative;
@@ -1059,7 +1061,7 @@ textarea:focus-visible {
     color: var(--blue);
     font-weight: 800;
 }
-.banner-ring {
+/* .banner-ring {
     position: absolute;
     right: -80px;
     bottom: -250px;
@@ -1068,7 +1070,7 @@ textarea:focus-visible {
     border: 76px solid #d8effa;
     border-radius: 50%;
     opacity: 0.6;
-}
+} */
 .three-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2660,4 +2662,1475 @@ textarea:focus {
     .hospital-gallery-section {
         padding-top: 52px;
     }
+}
+
+/* ATTARIYA HOSPITAL - DYNAMIC FACILITIES */
+
+.hospital-facility-photo {
+    overflow: hidden;
+}
+
+.hospital-facility-photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hospital-facility-placeholder {
+    width: 100%;
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+    background: #e9f5fb;
+    color: #0877b5;
+}
+
+.hospital-facility-placeholder svg {
+    width: 64px;
+    height: 64px;
+}
+
+.facility-description {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.hospital-facility-card {
+    min-width: 0;
+    height: 100%;
+}
+
+.hospital-facility-thumb {
+    width: 100%;
+    height: 175px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    background: #e9f5fb;
+}
+
+.hospital-facility-thumb img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.hospital-facility-card:hover
+.hospital-facility-thumb img {
+    transform: scale(1.05);
+}
+
+.hospital-facility-card p {
+    overflow-wrap: anywhere;
+}
+
+.hospital-facility-card .icon-tile {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+    .hospital-facility-thumb {
+        height: 200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hospital-facility-thumb img {
+        transition: none;
+    }
+}
+
+
+/* =======================================
+   ATTARIYA HOSPITAL - FACILITIES PAGE
+======================================= */
+
+.hospital-facility-photo {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #e6f3fa;
+}
+
+.hospital-facility-photo > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    object-fit: cover;
+}
+
+.hospital-facility-placeholder {
+    width: 100%;
+    min-height: 350px;
+    display: grid;
+    place-items: center;
+    color: #0879b8;
+    background: #e6f3fa;
+}
+
+.hospital-facility-placeholder svg {
+    width: 60px;
+    height: 60px;
+}
+
+.facility-description {
+    color: #607789;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    overflow-wrap: anywhere;
+}
+
+.hospital-facilities-grid {
+    align-items: stretch;
+}
+
+.hospital-facility-card {
+    min-width: 0;
+    height: 100%;
+}
+
+.hospital-facility-thumb {
+    width: 100%;
+    height: 175px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #e6f3fa;
+    margin-bottom: 20px;
+}
+
+.hospital-facility-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+
+.hospital-facility-card:hover
+.hospital-facility-thumb img {
+    transform: scale(1.05);
+}
+
+.hospital-facility-card p {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+    .hospital-facility-photo > img,
+    .hospital-facility-placeholder {
+        min-height: 260px;
+    }
+
+    .hospital-facility-thumb {
+        height: 200px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hospital-facility-thumb img {
+        transition: none;
+    }
+}
+
+/* ====================================
+   ATTARIYA HOSPITAL - DOCTOR IMAGE FIX
+==================================== */
+
+.doctor-card .doctor-avatar {
+    width: 100%;
+    height: 245px;
+    overflow: hidden;
+    background: #f0f5f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doctor-card .doctor-avatar img.doctor-profile-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center center;
+}
+
+/* Placeholder */
+.doctor-card .doctor-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #6aa7c8;
+}
+
+/* Keep card layout consistent */
+.doctor-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.doctor-card .doctor-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.doctor-card .doctor-content .doc-link {
+    margin-top: auto;
+}
+
+@media (max-width: 640px) {
+    .doctor-card .doctor-avatar {
+        height: 260px;
+    }
+}
+
+
+/* =======================================
+   ATTARIYA HOSPITAL - PREMIUM NEWS PAGE
+======================================= */
+
+.hospital-news-section {
+    background: #fff;
+}
+
+.hospital-news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.hospital-news-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #dce8f0;
+    border-radius: 17px;
+    background: #fff;
+    transition: transform .3s ease,
+                box-shadow .3s ease;
+}
+
+.hospital-news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(6, 48, 79, .1);
+}
+
+/* News cover */
+
+.hospital-news-media {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 215px;
+    overflow: hidden;
+    background: linear-gradient(
+        120deg, #9ddbef, #087cbd
+    );
+}
+
+.hospital-news-media > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s ease;
+}
+
+.hospital-news-card:hover .hospital-news-media > img {
+    transform: scale(1.04);
+}
+
+.hospital-news-placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.hospital-news-placeholder svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+}
+
+.hospital-news-category {
+    position: absolute;
+    left: 20px;
+    bottom: 17px;
+    padding: 9px 12px;
+    background: #fff;
+    border-radius: 6px;
+    color: #087cb8;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+/* News content */
+
+.hospital-news-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 30px 28px;
+}
+
+.hospital-news-date {
+    color: #8298aa;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.hospital-news-content h2 {
+    margin: 0 0 15px;
+    font-size: clamp(19px, 2vw, 23px);
+    line-height: 1.35;
+    color: #082d4a;
+}
+
+.hospital-news-content h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hospital-news-content h2 a:hover {
+    color: #087cbd;
+}
+
+.hospital-news-content p {
+    color: #607e94;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0 0 24px;
+    overflow-wrap: anywhere;
+}
+
+.hospital-news-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    margin-top: auto;
+    color: #087cbd;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.hospital-news-read svg {
+    width: 17px;
+    height: 17px;
+    transition: transform .25s ease;
+}
+
+.hospital-news-read:hover svg {
+    transform: translate(3px, -3px);
+}
+
+.hospital-news-pagination {
+    margin-top: 36px;
+}
+
+.hospital-news-empty {
+    text-align: center;
+    padding: 65px 20px;
+    color: #607e94;
+}
+
+.hospital-news-empty svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.hospital-news-empty h2 {
+    color: #082d4a;
+}
+
+/* Tablet & Mobile */
+
+@media (max-width: 768px) {
+    .hospital-news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hospital-news-media {
+        height: 240px;
+    }
+
+    .hospital-news-content {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hospital-news-media {
+        height: 200px;
+    }
+
+    .hospital-news-content h2 {
+        font-size: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hospital-news-card,
+    .hospital-news-media > img,
+    .hospital-news-read svg {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   ATTARIYA HOSPITAL - PREMIUM FOOTER
+========================================== */
+
+.ah-footer {
+    position: relative;
+    overflow: hidden;
+    background: #082a43;
+    color: #c3d8e7;
+    padding-top: 52px;
+    font-family: inherit;
+}
+
+/* Decorative background */
+
+.ah-footer::before {
+    content: "";
+    position: absolute;
+    right: -190px;
+    top: 160px;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: rgba(0, 143, 209, 0.07);
+    filter: blur(65px);
+    pointer-events: none;
+}
+
+/* ==========================================
+   TOP CTA
+========================================== */
+
+.ah-footer-top {
+    position: relative;
+    z-index: 1;
+}
+
+.ah-footer-cta {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 38px 42px;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 20px;
+
+    background: linear-gradient(
+        115deg,
+        #087db9 0%,
+        #0a8ac7 50%,
+        #075c93 100%
+    );
+
+    box-shadow: 0 16px 40px rgba(0, 16, 34, 0.14);
+}
+
+.ah-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+    min-width: 0;
+}
+
+.ah-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 13px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #d6f3ff;
+}
+
+.ah-cta-eyebrow svg {
+    width: 17px;
+    height: 17px;
+}
+
+.ah-footer-cta h2 {
+    color: #ffffff;
+    font-size: clamp(25px, 3vw, 36px);
+    font-weight: 800;
+    line-height: 1.24;
+    letter-spacing: -0.03em;
+    margin: 0 0 12px;
+}
+
+.ah-footer-cta h2 span {
+    color: #bfeaff;
+}
+
+.ah-footer-cta p {
+    color: #e3f4fd;
+    font-size: 13px;
+    line-height: 1.85;
+    margin: 0;
+    max-width: 520px;
+}
+
+.ah-cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.ah-footer .ah-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 15px 22px;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #075a8a;
+    font-weight: 800;
+    font-size: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.ah-footer .ah-cta-button:hover {
+    color: #075a8a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.17);
+}
+
+.ah-cta-button svg,
+.ah-cta-phone svg {
+    width: 17px;
+    height: 17px;
+}
+
+.ah-footer .ah-cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 0;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.ah-footer .ah-cta-phone:hover {
+    color: #d6f3ff;
+}
+
+.ah-cta-decoration {
+    position: absolute;
+    right: 20%;
+    bottom: -62px;
+    opacity: 0.085;
+    pointer-events: none;
+}
+
+.ah-cta-decoration svg {
+    width: 245px;
+    height: 245px;
+    color: #ffffff;
+    stroke-width: 1;
+}
+
+/* ==========================================
+   MAIN FOOTER
+========================================== */
+
+.ah-footer-main {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.55fr .85fr 1fr 1.5fr;
+    gap: 40px;
+    padding-top: 66px;
+    padding-bottom: 58px;
+}
+
+.ah-footer-about,
+.ah-footer-column,
+.ah-footer-contact {
+    min-width: 0;
+}
+
+/* Hospital Logo */
+
+.ah-footer .ah-footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    text-decoration: none;
+}
+
+.ah-footer-brand img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.ah-footer-brand span {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.ah-footer-brand strong {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.ah-footer-brand small {
+    color: #b6d0e2;
+    font-size: 11px;
+}
+
+.ah-footer-description {
+    margin: 23px 0 20px;
+    max-width: 325px;
+    color: #bfd3e2;
+    font-size: 12px;
+    line-height: 1.95;
+}
+
+/* Social links */
+
+.ah-footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 17px;
+}
+
+.ah-footer .ah-social-link {
+    display: grid;
+    place-items: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 10px;
+    background: #143f5c;
+    border: 1px solid #315b75;
+    color: #ffffff;
+    text-decoration: none;
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+.ah-footer .ah-social-link:hover {
+    background: #087fbf;
+    border-color: #087fbf;
+    color: #ffffff;
+    transform: translateY(-4px);
+}
+
+.ah-social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Headings */
+
+.ah-footer-main h3 {
+    position: relative;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    margin: 7px 0 27px;
+    padding-bottom: 15px;
+}
+
+.ah-footer-main h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    border-radius: 2px;
+    background: #27a5e4;
+}
+
+/* Footer Navigation */
+
+.ah-footer-column nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.ah-footer .ah-footer-column nav a {
+    display: inline-block;
+    color: #bfd3e2;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.ah-footer .ah-footer-column nav a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Contact Details */
+
+.ah-footer-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.ah-footer .ah-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    color: #bfd3e2;
+    text-decoration: none;
+    margin-bottom: 21px;
+}
+
+.ah-contact-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    color: #a3dfff;
+    background: #153e5a;
+}
+
+.ah-contact-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.ah-contact-item > div {
+    min-width: 0;
+}
+
+.ah-contact-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ah-contact-item div > span {
+    display: block;
+    color: #bfd3e2;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.ah-footer a.ah-contact-item:hover div > span {
+    color: #ffffff;
+}
+
+/* Contact button */
+
+.ah-footer .ah-footer-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #78ccf7;
+    text-decoration: none;
+}
+
+.ah-footer .ah-footer-location:hover {
+    color: #ffffff;
+}
+
+.ah-footer-location svg {
+    width: 16px;
+    height: 16px;
+    transition: transform .25s ease;
+}
+
+.ah-footer-location:hover svg {
+    transform: translate(3px, -3px);
+}
+
+/* ==========================================
+   FOOTER BOTTOM
+========================================== */
+
+.ah-footer-bottom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.ah-footer-bottom p {
+    margin: 0;
+    font-size: 11px;
+    color: #9dbbd0;
+}
+
+.ah-footer-bottom-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.ah-footer .ah-footer-bottom-links a,
+.ah-footer .ah-footer-bottom-links span {
+    color: #9dbbd0;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.ah-footer .ah-footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+.ah-bottom-separator {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #63859c;
+}
+
+/* Accessibility */
+
+.ah-footer a:focus-visible {
+    outline: 2px solid #b4eaff;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   RESPONSIVE FOOTER
+========================================== */
+
+@media (max-width: 1100px) {
+    .ah-footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ah-footer-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 28px;
+    }
+
+    .ah-cta-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .ah-footer {
+        padding-top: 30px;
+    }
+
+    .ah-footer-cta {
+        padding: 28px 22px;
+        gap: 24px;
+        border-radius: 15px;
+    }
+
+    .ah-footer-cta h2 {
+        font-size: 27px;
+    }
+
+    .ah-cta-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ah-footer .ah-cta-button {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .ah-footer .ah-cta-phone {
+        justify-content: center;
+    }
+
+    .ah-footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 36px 20px;
+        padding-top: 45px;
+        padding-bottom: 40px;
+    }
+
+    .ah-footer-about,
+    .ah-footer-contact {
+        grid-column: 1 / -1;
+    }
+
+    .ah-footer-description {
+        max-width: 100%;
+    }
+
+    .ah-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 370px) {
+    .ah-footer-main {
+        grid-template-columns: 1fr;
+    }
+
+    .ah-footer-about,
+    .ah-footer-contact {
+        grid-column: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ah-footer *,
+    .ah-footer *::before,
+    .ah-footer *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+
+/* ==========================================
+   ATTARIYA HOSPITAL - PREMIUM HEADER
+========================================== */
+
+.ah-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid #e8eff4;
+    box-shadow: 0 3px 20px rgba(5, 44, 74, 0.045);
+    transition: box-shadow .3s ease,
+                background .3s ease;
+}
+
+.ah-header:hover {
+    box-shadow: 0 5px 25px rgba(5, 44, 74, 0.065);
+}
+
+.ah-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    min-height: 82px;
+}
+
+/* ==========================================
+   BRAND / LOGO
+========================================== */
+
+.ah-header .ah-header-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+    text-decoration: none;
+    min-width: 0;
+}
+
+.ah-brand-logo {
+    display: grid;
+    place-items: center;
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 3px 12px rgba(8, 96, 150, .09);
+    transition: transform .3s ease;
+}
+
+.ah-header-brand:hover .ah-brand-logo {
+    transform: scale(1.045);
+}
+
+.ah-brand-logo img {
+    display: block;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.ah-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ah-header .ah-brand-text strong {
+    color: #07375b;
+    font-size: 15px;
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: -.025em;
+    white-space: nowrap;
+}
+
+.ah-header .ah-brand-text strong em {
+    font-style: normal;
+    color: #087bb9;
+}
+
+.ah-brand-text small {
+    color: #7b91a3;
+    font-size: 10px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+/* ==========================================
+   DESKTOP NAVIGATION
+========================================== */
+
+.ah-header .ah-desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(9px, 1.12vw, 18px);
+    flex: 1;
+    min-width: 0;
+}
+
+.ah-header .ah-desktop-nav .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 0;
+    color: #455d70;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+
+    transition: color .25s ease;
+}
+
+.ah-header .ah-desktop-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: #087fbe;
+
+    transition: width .25s ease,
+                left .25s ease;
+}
+
+.ah-header .ah-desktop-nav .nav-link:hover,
+.ah-header .ah-desktop-nav .nav-link.active {
+    color: #087fbe;
+}
+
+.ah-header .ah-desktop-nav .nav-link:hover::after,
+.ah-header .ah-desktop-nav .nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* ==========================================
+   APPOINTMENT BUTTON
+========================================== */
+
+.ah-header-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+}
+
+.ah-header .ah-appointment-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 17px;
+    min-height: 46px;
+    background: linear-gradient(135deg, #087fbf, #0569a4);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(8, 127, 191, .17);
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 800;
+
+    transition: transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+}
+
+.ah-header .ah-appointment-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #056ca7, #064f80);
+    box-shadow: 0 10px 23px rgba(8, 127, 191, .25);
+    color: white;
+}
+
+.ah-appointment-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.ah-appointment-btn .ah-appointment-arrow {
+    width: 14px;
+    height: 14px;
+    opacity: .85;
+}
+
+/* ==========================================
+   MOBILE NAVIGATION
+========================================== */
+
+.ah-header .ah-mobile-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #d8e9f3;
+    border-radius: 10px;
+    color: #087bb9;
+    background: #eff8fd;
+    cursor: pointer;
+}
+
+.ah-mobile-toggle svg {
+    width: 23px;
+    height: 23px;
+}
+
+.ah-header .ah-mobile-nav {
+    background: white;
+    border-top: 1px solid #edf2f6;
+}
+
+.ah-header .ah-mobile-nav .nav-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3c586b;
+}
+
+.ah-header .ah-mobile-nav .nav-link.active {
+    color: #087fbe;
+}
+
+.ah-header .ah-mobile-appointment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1200px) {
+    .ah-header-inner {
+        gap: 14px;
+    }
+
+    .ah-header .ah-desktop-nav {
+        gap: 10px;
+    }
+
+    .ah-header .ah-desktop-nav .nav-link {
+        font-size: 11px;
+    }
+
+    .ah-header .ah-appointment-btn {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .ah-header .ah-desktop-nav {
+        display: none;
+    }
+
+    .ah-header .ah-mobile-toggle {
+        display: inline-flex;
+    }
+
+    .ah-header-inner {
+        min-height: 74px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ah-header-inner {
+        min-height: 70px;
+        gap: 10px;
+    }
+
+    .ah-brand-logo {
+        width: 43px;
+        height: 43px;
+    }
+
+    .ah-brand-logo img {
+        width: 39px;
+        height: 39px;
+    }
+
+    .ah-header .ah-brand-text strong {
+        font-size: 12px;
+    }
+
+    .ah-brand-text small {
+        font-size: 9px;
+    }
+
+    .ah-header .ah-appointment-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 370px) {
+    .ah-header .ah-brand-text strong {
+        font-size: 11px;
+    }
+
+    .ah-brand-text small {
+        font-size: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ah-header *,
+    .ah-header *::before,
+    .ah-header *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ========================================
+   ATTARIYA HOSPITAL - HOMEPAGE NEWS
+======================================== */
+
+.home-news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.home-news-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #dce8f0;
+    border-radius: 17px;
+    background: white;
+    transition: transform .25s ease,
+                box-shadow .25s ease;
+}
+
+.home-news-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(8, 60, 95, .1);
+}
+
+.home-news-image {
+    display: block;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #e7f4fa;
+}
+
+.home-news-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .35s ease;
+}
+
+.home-news-card:hover .home-news-image img {
+    transform: scale(1.04);
+}
+
+.home-news-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 26px 28px;
+}
+
+.home-news-content time {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8197a8;
+    margin-bottom: 15px;
+}
+
+.home-news-content h3 {
+    margin: 0 0 15px;
+    font-size: 21px;
+    line-height: 1.35;
+}
+
+.home-news-content h3 a {
+    color: #082f4c;
+    text-decoration: none;
+}
+
+.home-news-content p {
+    color: #617f94;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0 0 25px;
+}
+
+.home-news-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    color: #087fbe;
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: auto;
+    text-decoration: none;
+}
+
+.home-news-read svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .home-news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-news-card,
+    .home-news-image img {
+        transition: none;
+    }
+}
+
+
+.page-banner {
+    position: relative;
+    min-height: 280px;
+    padding: 70px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 36, 64, 0.92) 0%,
+            rgba(5, 50, 83, 0.68) 100%
+        ),
+        url('/assets/images/banner-img.png')
+        center / cover no-repeat;
+}
+
+.page-banner h1 {
+    color: #fff;
+    font-size: clamp(32px, 4vw, 48px);
+}
+
+.page-banner p,
+.page-banner .breadcrumb {
+    color: #e2edf5;
+}
+
+.page-banner {
+    min-height: 280px;
+    padding: 55px 0;
+    background-position: center 55%;
+    background-size: cover;
+}
+
+.page-banner .breadcrumb,
+.page-banner .breadcrumb a {
+    color: #d5e9f8;
+}
+
+.page-banner .eyebrow {
+    color: #7dd3fc;
 }
