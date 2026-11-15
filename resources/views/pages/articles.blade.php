@@ -1,0 +1,4 @@
+@extends('layouts.site')
+@section('content')
+<main id="main"><section class="page-banner"><div class="container"><div class="breadcrumbs"><a href="{{ url('/') }}">Home</a><i aria-hidden="true" data-lucide="chevron-right" style="width:15px;height:15px"></i><span>Health Articles</span></div><span class="eyebrow">ATTARIYA HOSPITAL</span><h1>Health Articles</h1><p>Reliable, patient-friendly health education.</p></div><div class="banner-ring"></div></section><section class="section"><div class="container article-empty"><span class="icon-tile"><i aria-hidden="true" data-lucide="book-heart" style="width:38px;height:38px"></i></span><h2>Health resources are being prepared.</h2><p>Medical articles will be published here after content and clinical review. Until then, contact the hospital for care-specific questions.</p><a class="btn btn-primary" href="{{ url('/contact') }}">Contact hospital</a></div></section></main>
+@endsection

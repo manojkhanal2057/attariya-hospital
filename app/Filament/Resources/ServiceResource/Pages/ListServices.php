@@ -1,0 +1,8 @@
+<?php
+namespace App\Filament\Resources\ServiceResource\Pages;
+use App\Filament\Resources\ServiceResource\ServiceResource;
+use Filament\Resources\Pages\ListRecords;
+class ListServices extends ListRecords {
+ protected static string $resource=ServiceResource::class;
+ protected function getHeaderActions():array {return [\Filament\Actions\CreateAction::make()];}
+}
