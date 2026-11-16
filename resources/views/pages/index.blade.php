@@ -164,23 +164,57 @@
                         class="demo-tag">Illustrative photo</span></div>
             </div>
         </section>
-        <section class="section section-tint">
+        {{-- Doctors carousel: uses existing doctor-card partial --}}
+        <section class="section section-tint ah-home-doctors-section" aria-labelledby="homeDoctorsTitle">
             <div class="container">
                 <div class="section-heading">
                     <div><span class="eyebrow">OUR MEDICAL TEAM</span>
-                        <h2>Meet the professionals</h2>
-                        <p>Doctor names and specialties are taken from the hospital’s reference website; confirm current
-                            schedules directly.</p>
-                    </div><a class="section-link" href="{{ url('/doctors') }}">All doctors <i aria-hidden="true"
-                            data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+                        <h2 id="homeDoctorsTitle">Meet Our Medical Professionals</h2>
+                        <p>Meet our team. Please confirm availability before visiting.</p>
+                    </div>
+                    <a class="section-link" href="{{ route('doctors.index') }}">All doctors <i data-lucide="arrow-right" aria-hidden="true"></i></a>
                 </div>
-                <div class="doctor-grid home-doctors">
-                    @foreach ($doctors as $doctor)
-                        @include('partials.doctor-card', ['doctor' => $doctor])
-                    @endforeach
-                </div>
+                @if($doctors->isNotEmpty())
+                    <div class="ah-doctors-slider">
+                        <div class="ah-doctors-slider__controls">
+                            <span>Explore our medical team</span>
+                            <div class="ah-doctors-slider__arrows">
+                                <button type="button" id="doctorsPrev" class="ah-doctors-slider__arrow" aria-label="Previous doctor" aria-controls="doctorsTrack"><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+                                <button type="button" id="doctorsNext" class="ah-doctors-slider__arrow" aria-label="Next doctor" aria-controls="doctorsTrack"><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                        <div id="doctorsTrack" class="ah-doctors-slider__track" role="region" aria-label="Medical team, horizontally scrollable" tabindex="0">
+                            @foreach($doctors as $doctor)
+                                <div class="ah-doctors-slider__slide">
+                                    @include('partials.doctor-card', ['doctor' => $doctor])
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @else
+                    <p>Contact the hospital for current doctor information.</p>
+                @endif
             </div>
         </section>
+        {{-- Leadership cards appear only when approved records have been published. --}}
+        @if(($leadershipMessages ?? collect())->isNotEmpty())
+            <section class="section ah-leadership-section" aria-labelledby="leadershipTitle">
+                <div class="container">
+                    <div class="section-heading"><div><span class="eyebrow">A MESSAGE FROM OUR LEADERSHIP</span><h2 id="leadershipTitle">Our Commitment to Care</h2></div></div>
+                    <div class="ah-leadership-grid">
+                        @foreach($leadershipMessages as $leader)
+                            <article class="ah-leadership-card">
+                                @if($leader->photo)<img class="ah-leadership-photo" src="{{ asset('storage/' . $leader->photo) }}" alt="{{ $leader->name }}" loading="lazy">@endif
+                                <div class="ah-leadership-copy"><span class="ah-leadership-role">{{ $leader->position }}</span>
+                                    <h3>{{ $leader->name }}</h3>
+                                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($leader->message), 360) }}</p>
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        @endif
         <section class="section">
             <div class="container">
                 <div class="section-heading">
@@ -212,78 +246,97 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        {{-- LATEST NEWS + NOTICES: one compact tabbed section --}}
+        <section class="section ah-home-updates" id="latest-updates">
             <div class="container">
                 <div class="section-heading">
-                    <div><span class="eyebrow">LATEST UPDATES</span>
-                        <h2>Hospital news &amp; announcements</h2>
-                        <p>Selected public reports and hospital-related updates.</p>
-                    </div><a class="section-link" href="{{ url('/news') }}">See all news <i aria-hidden="true"
-                            data-lucide="arrow-right" style="width:18px;height:18px"></i></a>
+                    <div>
+                        <span class="eyebrow">LATEST UPDATES</span>
+                        <h2>Hospital News &amp; Notices</h2>
+                        <p>Recent hospital news, announcements and official notices.</p>
+                    </div>
                 </div>
-             
-<div class="home-news-grid">
 
-    @forelse ($news as $post)
+                <div class="ah-updates-tabs" role="tablist" aria-label="Hospital updates">
+                    <button class="ah-updates-tab active" type="button" role="tab" id="ahNewsTab"
+                        aria-selected="true" aria-controls="ahNewsPanel" tabindex="0" data-updates-tab="news">
+                        <i data-lucide="newspaper" aria-hidden="true"></i> Latest News
+                    </button>
+                    <button class="ah-updates-tab" type="button" role="tab" id="ahNoticesTab"
+                        aria-selected="false" aria-controls="ahNoticesPanel" tabindex="-1" data-updates-tab="notices">
+                        <i data-lucide="megaphone" aria-hidden="true"></i> Notices
+                    </button>
+                </div>
 
-        <article class="home-news-card">
+                {{-- NEWS: reuse existing card design --}}
+                <div class="ah-updates-panel" id="ahNewsPanel" role="tabpanel"
+                    aria-labelledby="ahNewsTab" tabindex="0">
+                    <div class="home-news-grid">
+                        @forelse ($news as $post)
+                            <article class="home-news-card">
+                                @if ($post->image)
+                                    <a href="{{ route('news.show', $post->slug) }}" class="home-news-image"
+                                        aria-label="Read {{ $post->title }}">
+                                        <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($post->image) }}"
+                                            alt="{{ $post->title }}" loading="lazy" decoding="async">
+                                    </a>
+                                @endif
+                                <div class="home-news-content">
+                                    <time datetime="{{ $post->published_at?->format('Y-m-d') }}">
+                                        {{ $post->published_at?->format('d M Y') }}
+                                    </time>
+                                    <h3><a href="{{ route('news.show', $post->slug) }}">{{ $post->title }}</a></h3>
+                                    @if ($post->excerpt)
+                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->excerpt), 120) }}</p>
+                                    @endif
+                                    <a href="{{ route('news.show', $post->slug) }}" class="home-news-read">
+                                        Read update <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        @empty
+                            <div class="ah-updates-empty"><i data-lucide="newspaper" aria-hidden="true"></i>
+                                <p>No hospital news available at the moment.</p></div>
+                        @endforelse
+                    </div>
+                    <div class="ah-updates-footer"><a class="section-link" href="{{ route('news.index') }}">
+                        View all news <i data-lucide="arrow-right" aria-hidden="true"></i>
+                    </a></div>
+                </div>
 
-            @if ($post->image)
-                <a
-                    href="{{ url('/news/' . $post->slug) }}"
-                    class="home-news-image"
-                    aria-label="Read {{ $post->title }}"
-                >
-                    <img
-                        src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($post->image) }}"
-                        alt="{{ $post->title }}"
-                        loading="lazy"
-                        decoding="async"
-                    >
-                </a>
-            @endif
-
-            <div class="home-news-content">
-
-                <time datetime="{{ $post->published_at?->format('Y-m-d') }}">
-                    {{ $post->published_at?->format('d M Y') }}
-                </time>
-
-                <h3>
-                    <a href="{{ url('/news/' . $post->slug) }}">
-                        {{ $post->title }}
-                    </a>
-                </h3>
-
-                @if ($post->excerpt)
-                    <p>
-                        {{ \Illuminate\Support\Str::limit(
-                            strip_tags($post->excerpt),
-                            160
-                        ) }}
-                    </p>
-                @endif
-
-                <a
-                    href="{{ url('/news/' . $post->slug) }}"
-                    class="home-news-read"
-                >
-                    Read update
-                    <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-                </a>
-
-            </div>
-
-        </article>
-
-    @empty
-
-        <p>No hospital news available at the moment.</p>
-
-    @endforelse
-
-</div>
-
+                {{-- NOTICES: recent published notices only --}}
+                <div class="ah-updates-panel" id="ahNoticesPanel" role="tabpanel"
+                    aria-labelledby="ahNoticesTab" tabindex="0" hidden>
+                    <div class="ah-home-notices-list">
+                        @forelse ($notices as $notice)
+                            <article class="ah-home-notice-card">
+                                <span class="ah-home-notice-icon"><i data-lucide="file-text" aria-hidden="true"></i></span>
+                                <div class="ah-home-notice-body">
+                                    <div class="ah-home-notice-meta">
+                                        <span>{{ ucwords(str_replace('-', ' ', $notice->category ?? 'general')) }}</span>
+                                        <time datetime="{{ $notice->published_at?->format('Y-m-d') }}">
+                                            {{ $notice->published_at?->format('d M Y') }}
+                                        </time>
+                                    </div>
+                                    <h3><a href="{{ route('notices.show', $notice->slug) }}">{{ $notice->title }}</a></h3>
+                                    @if ($notice->description)
+                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($notice->description), 110) }}</p>
+                                    @endif
+                                </div>
+                                <a class="ah-home-notice-arrow" href="{{ route('notices.show', $notice->slug) }}"
+                                    aria-label="Read notice: {{ $notice->title }}">
+                                    <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </article>
+                        @empty
+                            <div class="ah-updates-empty"><i data-lucide="clipboard-list" aria-hidden="true"></i>
+                                <p>No official notices published yet.</p></div>
+                        @endforelse
+                    </div>
+                    <div class="ah-updates-footer"><a class="section-link" href="{{ route('notices.index') }}">
+                        View all notices <i data-lucide="arrow-right" aria-hidden="true"></i>
+                    </a></div>
+                </div>
             </div>
         </section>
         <section class="section section-tint">
@@ -301,3 +354,73 @@
         </section>
     </main>
 @endsection
+
+
+{{-- News / Notices tabs: loaded by @stack('scripts') in layouts.site --}}
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = [...document.querySelectorAll('[data-updates-tab]')];
+    const panels = {
+        news: document.getElementById('ahNewsPanel'),
+        notices: document.getElementById('ahNoticesPanel'),
+    };
+    if (tabs.length !== 2 || !panels.news || !panels.notices) return;
+
+    function selectTab(name, focus = false) {
+        tabs.forEach(tab => {
+            const active = tab.dataset.updatesTab === name;
+            tab.classList.toggle('active', active);
+            tab.setAttribute('aria-selected', String(active));
+            tab.tabIndex = active ? 0 : -1;
+            if (active && focus) tab.focus();
+        });
+        Object.entries(panels).forEach(([key, panel]) => panel.hidden = key !== name);
+    }
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectTab(tab.dataset.updatesTab));
+        tab.addEventListener('keydown', event => {
+            const key = event.key;
+            let target = null;
+            if (key === 'ArrowRight') target = (index + 1) % tabs.length;
+            if (key === 'ArrowLeft') target = (index - 1 + tabs.length) % tabs.length;
+            if (key === 'Home') target = 0;
+            if (key === 'End') target = tabs.length - 1;
+            if (target === null) return;
+            event.preventDefault();
+            selectTab(tabs[target].dataset.updatesTab, true);
+        });
+    });
+});
+</script>
+@endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.getElementById('doctorsTrack');
+    const prev = document.getElementById('doctorsPrev');
+    const next = document.getElementById('doctorsNext');
+    if (!track || !prev || !next) return;
+    function step() {
+        const slide = track.querySelector('.ah-doctors-slider__slide');
+        return slide ? slide.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).gap) || 0) : 0;
+    }
+    function update() {
+        const max = Math.max(0, track.scrollWidth - track.clientWidth);
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max - 2;
+    }
+    function move(direction) {
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        track.scrollBy({left: direction * step(), behavior: reduced ? 'auto' : 'smooth'});
+    }
+    prev.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    track.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+});
+</script>
+@endpush

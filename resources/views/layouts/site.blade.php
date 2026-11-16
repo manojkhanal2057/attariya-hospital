@@ -22,193 +22,215 @@
 
 <body>
 
-<header class="site-header ah-header" id="siteHeader">
+    <header class="site-header ah-header" id="siteHeader">
 
-    <div class="container header-inner ah-header-inner">
+        <div class="container header-inner ah-header-inner">
 
-        {{-- HOSPITAL BRAND --}}
-        <a
-            class="brand ah-header-brand"
-            href="{{ url('/') }}"
-            aria-label="Attariya Hospital - Home"
-        >
+            {{-- HOSPITAL BRAND --}}
+            <a class="brand ah-header-brand" href="{{ url('/') }}" aria-label="Attariya Hospital - Home">
 
-            <span class="ah-brand-logo">
-                <img
-                    src="{{ asset('assets/images/hospital-logo.png') }}"
-                    alt="Attariya Hospital logo"
-                    width="48"
-                    height="48"
-                    loading="eager"
-                >
-            </span>
+                <span class="ah-brand-logo">
+                    <img src="{{ asset('assets/images/hospital-logo.png') }}" alt="Attariya Hospital logo"
+                        width="48" height="48" loading="eager">
+                </span>
 
-            <span class="ah-brand-text">
-                <strong>
-                    ATTARIYA <em>HOSPITAL</em>
-                </strong>
+                <span class="ah-brand-text">
+                    <strong>
+                        ATTARIYA <em>HOSPITAL</em>
+                    </strong>
 
-                <small>अत्तरिया हस्पिटल प्रा.लि.</small>
-            </span>
+                    <small>अत्तरिया हस्पिटल प्रा.लि.</small>
+                </span>
 
-        </a>
-
-
-        {{-- DESKTOP NAVIGATION --}}
-        <nav
-            aria-label="Main navigation"
-            class="desktop-nav ah-desktop-nav"
-        >
-
-            <a class="nav-link {{ request()->is('/') ? 'active' : '' }}"
-               href="{{ url('/') }}"
-               @if(request()->is('/')) aria-current="page" @endif>
-                Home
             </a>
 
-            <a class="nav-link {{ request()->is('about') ? 'active' : '' }}"
-               href="{{ url('/about') }}"
-               @if(request()->is('about')) aria-current="page" @endif>
-                About
-            </a>
 
-            <a class="nav-link {{ request()->is('departments', 'department-*') ? 'active' : '' }}"
-               href="{{ url('/departments') }}"
-               @if(request()->is('departments', 'department-*')) aria-current="page" @endif>
+        
+{{-- DESKTOP NAVIGATION --}}
+<nav aria-label="Main navigation"
+     class="desktop-nav ah-desktop-nav">
+
+    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}"
+       href="{{ route('home') }}">
+        Home
+    </a>
+
+    <a class="nav-link {{ request()->is('about') ? 'active' : '' }}"
+       href="{{ url('/about') }}">
+        About
+    </a>
+
+    {{-- HEALTHCARE DROPDOWN --}}
+    <details class="ah-nav-dropdown {{ request()->is('departments', 'department-*', 'services', 'service-*', 'packages', 'packages/*', 'facilities') ? 'active' : '' }}">
+
+        <summary class="nav-link">
+            Healthcare
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+
+        <div class="ah-nav-dropdown-menu">
+
+            <a href="{{ route('departments.index') }}"
+               class="{{ request()->is('departments', 'department-*') ? 'active' : '' }}">
+                <i data-lucide="building-2" aria-hidden="true"></i>
                 Departments
             </a>
 
-            <a class="nav-link {{ request()->is('services', 'service-*') ? 'active' : '' }}"
-               href="{{ url('/services') }}"
-               @if(request()->is('services', 'service-*')) aria-current="page" @endif>
-                Services
+            <a href="{{ route('services.index') }}"
+               class="{{ request()->is('services', 'service-*') ? 'active' : '' }}">
+                <i data-lucide="stethoscope" aria-hidden="true"></i>
+                Medical Services
             </a>
 
-            <a class="nav-link {{ request()->is('doctors', 'doctor-*') ? 'active' : '' }}"
-               href="{{ url('/doctors') }}"
-               @if(request()->is('doctors', 'doctor-*')) aria-current="page" @endif>
-                Doctors
+            <a href="{{ route('packages.index') }}"
+               class="{{ request()->is('packages', 'packages/*') ? 'active' : '' }}">
+                <i data-lucide="clipboard-check" aria-hidden="true"></i>
+                Health Packages
             </a>
 
-            <a class="nav-link {{ request()->is('facilities') ? 'active' : '' }}"
-               href="{{ url('/facilities') }}"
-               @if(request()->is('facilities')) aria-current="page" @endif>
+            <a href="{{ route('facilities.index') }}"
+               class="{{ request()->is('facilities') ? 'active' : '' }}">
+                <i data-lucide="heart-pulse" aria-hidden="true"></i>
                 Facilities
             </a>
 
-            <a class="nav-link {{ request()->is('gallery') ? 'active' : '' }}"
-               href="{{ url('/gallery') }}"
-               @if(request()->is('gallery')) aria-current="page" @endif>
+        </div>
+    </details>
+
+    <a class="nav-link {{ request()->is('doctors', 'doctor-*') ? 'active' : '' }}"
+       href="{{ route('doctors.index') }}">
+        Doctors
+    </a>
+
+    {{-- MEDIA DROPDOWN --}}
+    <details class="ah-nav-dropdown {{ request()->is('gallery', 'news', 'news/*', 'notices', 'notices/*') ? 'active' : '' }}">
+
+        <summary class="nav-link">
+            Media
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+
+        <div class="ah-nav-dropdown-menu">
+
+            <a href="{{ route('gallery.index') }}"
+               class="{{ request()->is('gallery') ? 'active' : '' }}">
+                <i data-lucide="images" aria-hidden="true"></i>
                 Gallery
             </a>
 
-            <a class="nav-link {{ request()->is('news', 'news/*') ? 'active' : '' }}"
-               href="{{ url('/news') }}"
-               @if(request()->is('news', 'news/*')) aria-current="page" @endif>
+            <a href="{{ route('news.index') }}"
+               class="{{ request()->is('news', 'news/*') ? 'active' : '' }}">
+                <i data-lucide="newspaper" aria-hidden="true"></i>
                 News
             </a>
 
-            <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
-               href="{{ url('/contact') }}"
-               @if(request()->is('contact')) aria-current="page" @endif>
-                Contact
+            <a href="{{ url('/notices') }}"
+               class="{{ request()->is('notices', 'notices/*') ? 'active' : '' }}">
+                <i data-lucide="megaphone" aria-hidden="true"></i>
+                Notices
             </a>
 
-        </nav>
+        </div>
+    </details>
+
+    <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
+       href="{{ url('/contact') }}">
+        Contact
+    </a>
+
+</nav>
 
 
-        {{-- HEADER ACTIONS --}}
-        <div class="head-actions ah-header-actions">
 
-            <a
-                href="{{ url('/appointment') }}"
-                class="btn btn-primary header-appointment ah-appointment-btn"
-            >
-                <i
-                    data-lucide="calendar-days"
-                    aria-hidden="true"
-                ></i>
+            {{-- HEADER ACTIONS --}}
+            <div class="head-actions ah-header-actions">
 
-                <span
-                    data-en="Book Appointment"
-                    data-ne="अपोइन्टमेन्ट अनुरोध"
-                >
-                    Book Appointment
-                </span>
+                <a href="{{ url('/appointment') }}" class="btn btn-primary header-appointment ah-appointment-btn">
+                    <i data-lucide="calendar-days" aria-hidden="true"></i>
 
-                <i
-                    class="ah-appointment-arrow"
-                    data-lucide="arrow-up-right"
-                    aria-hidden="true"
-                ></i>
-            </a>
+                    <span data-en="Book Appointment" data-ne="अपोइन्टमेन्ट अनुरोध">
+                        Book Appointment
+                    </span>
+
+                    <i class="ah-appointment-arrow" data-lucide="arrow-up-right" aria-hidden="true"></i>
+                </a>
 
 
-            {{-- MOBILE MENU BUTTON --}}
-            <button
-                id="menuToggle"
-                class="mobile-toggle ah-mobile-toggle"
-                type="button"
-                aria-label="Open navigation"
-                aria-controls="mobileNav"
-                aria-expanded="false"
-            >
-                <i
-                    data-lucide="menu"
-                    aria-hidden="true"
-                ></i>
-            </button>
+                {{-- MOBILE MENU BUTTON --}}
+                <button id="menuToggle" class="mobile-toggle ah-mobile-toggle" type="button"
+                    aria-label="Open navigation" aria-controls="mobileNav" aria-expanded="false">
+                    <i data-lucide="menu" aria-hidden="true"></i>
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
+
+{{-- MOBILE NAVIGATION --}}
+<nav id="mobileNav"
+     class="mobile-nav ah-mobile-nav"
+     aria-label="Mobile navigation">
+
+    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}"
+       href="{{ route('home') }}">Home</a>
+
+    <a class="nav-link {{ request()->is('about') ? 'active' : '' }}"
+       href="{{ url('/about') }}">About</a>
+
+    {{-- HEALTHCARE --}}
+    <details class="ah-mobile-dropdown">
+
+        <summary class="nav-link">
+            Healthcare
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+
+        <div class="ah-mobile-dropdown-links">
+            <a href="{{ route('departments.index') }}">Departments</a>
+            <a href="{{ route('services.index') }}">Medical Services</a>
+            <a href="{{ route('packages.index') }}">Health Packages</a>
+            <a href="{{ route('facilities.index') }}">Facilities</a>
+        </div>
+
+    </details>
+
+    <a class="nav-link {{ request()->is('doctors', 'doctor-*') ? 'active' : '' }}"
+       href="{{ route('doctors.index') }}">
+        Doctors
+    </a>
+
+    {{-- MEDIA --}}
+    <details class="ah-mobile-dropdown">
+
+        <summary class="nav-link">
+            Media
+            <i data-lucide="chevron-down" aria-hidden="true"></i>
+        </summary>
+
+        <div class="ah-mobile-dropdown-links">
+            <a href="{{ route('gallery.index') }}">Gallery</a>
+            <a href="{{ route('news.index') }}">News</a>
+            <a href="{{ url('/notices') }}">Notices</a>
+        </div>
+
+    </details>
+
+    <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
+       href="{{ url('/contact') }}">
+        Contact
+    </a>
+
+    <a class="btn btn-primary ah-mobile-appointment"
+       href="{{ url('/appointment') }}">
+        <i data-lucide="calendar-days" aria-hidden="true"></i>
+        Request Appointment
+    </a>
+
+</nav>
 
 
-    {{-- MOBILE NAVIGATION --}}
-    <nav
-        id="mobileNav"
-        class="mobile-nav ah-mobile-nav"
-        aria-label="Mobile navigation"
-    >
-
-        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}"
-           href="{{ url('/') }}">Home</a>
-
-        <a class="nav-link {{ request()->is('about') ? 'active' : '' }}"
-           href="{{ url('/about') }}">About</a>
-
-        <a class="nav-link {{ request()->is('departments', 'department-*') ? 'active' : '' }}"
-           href="{{ url('/departments') }}">Departments</a>
-
-        <a class="nav-link {{ request()->is('services', 'service-*') ? 'active' : '' }}"
-           href="{{ url('/services') }}">Services</a>
-
-        <a class="nav-link {{ request()->is('doctors', 'doctor-*') ? 'active' : '' }}"
-           href="{{ url('/doctors') }}">Doctors</a>
-
-        <a class="nav-link {{ request()->is('facilities') ? 'active' : '' }}"
-           href="{{ url('/facilities') }}">Facilities</a>
-
-        <a class="nav-link {{ request()->is('gallery') ? 'active' : '' }}"
-           href="{{ url('/gallery') }}">Gallery</a>
-
-        <a class="nav-link {{ request()->is('news', 'news/*') ? 'active' : '' }}"
-           href="{{ url('/news') }}">News</a>
-
-        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
-           href="{{ url('/contact') }}">Contact</a>
-
-        <a
-            class="btn btn-primary ah-mobile-appointment"
-            href="{{ url('/appointment') }}"
-        >
-            <i data-lucide="calendar-days" aria-hidden="true"></i>
-            Request Appointment
-        </a>
-
-    </nav>
-
-</header>
+    </header>
 
     @if (session('success'))
         <div class="container" role="status"
@@ -492,6 +514,7 @@
 
     </footer>
 
+@stack('scripts')
 </body>
 
 </html>

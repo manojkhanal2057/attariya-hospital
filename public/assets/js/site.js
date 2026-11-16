@@ -75,3 +75,59 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Appointment/contact forms POST to Laravel. No mailto interception.
 });
+
+/* =========================================
+   DESKTOP DROPDOWN HOVER BEHAVIOR
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(
+        ".ah-desktop-nav .ah-nav-dropdown"
+    );
+
+    const desktopQuery = window.matchMedia("(min-width: 992px)");
+
+    dropdowns.forEach((dropdown) => {
+        const summary = dropdown.querySelector("summary");
+
+        if (!summary) return;
+
+        // Open when mouse enters
+        dropdown.addEventListener("mouseenter", () => {
+            if (!desktopQuery.matches) return;
+
+            dropdown.open = true;
+        });
+
+        // Close when mouse leaves
+        dropdown.addEventListener("mouseleave", () => {
+            if (!desktopQuery.matches) return;
+
+            dropdown.open = false;
+        });
+
+        // Prevent click from toggling desktop dropdown
+        summary.addEventListener("click", (event) => {
+            if (!desktopQuery.matches) return;
+
+            event.preventDefault();
+        });
+
+        // Close when keyboard focus leaves
+        dropdown.addEventListener("focusout", (event) => {
+            if (!desktopQuery.matches) return;
+
+            if (!dropdown.contains(event.relatedTarget)) {
+                dropdown.open = false;
+            }
+        });
+
+        // Escape key closes dropdown
+        dropdown.addEventListener("keydown", (event) => {
+            if (event.key !== "Escape") return;
+
+            dropdown.open = false;
+            summary.focus();
+        });
+    });
+});

@@ -1,4 +1,72 @@
 @extends('layouts.site')
 @section('content')
-<main id="main"><section class="page-banner"><div class="container"><div class="breadcrumbs"><a href="{{ url('/') }}">Home</a><i aria-hidden="true" data-lucide="chevron-right" style="width:15px;height:15px"></i><span>Services / Cath Lab</span></div><span class="eyebrow">ATTARIYA HOSPITAL</span><h1>Advanced Cardiac Cath Lab</h1><p>Cardiac catheterization service reported by news outlets; confirm current access and timing.</p></div><div class="banner-ring"></div></section><section class="section"><div class="container detail-layout"><div class="detail-main"><span class="eyebrow">SPECIALIZED CARDIAC CARE</span><h2>Sudurpashchim’s first reported Cath Lab service</h2><p>On November 21, 2025, Attariya Hospital introduced a cardiac catheterization laboratory, reported by national and regional news organizations as the first of its kind in Sudurpashchim Province.</p><p>A Cath Lab is a specialized clinical facility used to diagnose and treat certain heart and blood-vessel conditions using catheter-based imaging and procedures. The most appropriate test or treatment depends on evaluation by a qualified medical team.</p><div class="cath-detail-callout"><i aria-hidden="true" data-lucide="heart-pulse"></i><div><strong>Cardiac procedures reported at launch</strong><p>The services below were announced at the Cath Lab launch. Please confirm their current availability with the hospital before visiting.</p></div></div><div class="cath-procedure-grid"><article><i aria-hidden="true" data-lucide="scan-line"></i><h3>Coronary &amp; Peripheral Angiography</h3><p>Catheter-based imaging to assess selected heart and blood vessels.</p></article><article><i aria-hidden="true" data-lucide="activity"></i><h3>Angioplasty (PCI)</h3><p>A catheter-based treatment option for certain narrowed or blocked coronary arteries.</p></article><article><i aria-hidden="true" data-lucide="heart"></i><h3>Temporary Pacemaker</h3><p>Short-term pacing support when clinically required.</p></article><article><i aria-hidden="true" data-lucide="heart-handshake"></i><h3>Permanent Pacemaker</h3><p>A cardiac rhythm device option for qualifying patients.</p></article></div><h2>Plan your hospital visit</h2><p>For specialist consultation, procedure suitability, preparation, schedules, and charges, contact the hospital directly. An online appointment request is not an emergency service or confirmed booking.</p><div class="cath-detail-actions"><a class="btn btn-primary" href="{{ url('/appointment') }}">Request an appointment</a><a class="btn btn-secondary" href="tel:+97791590547">Call 091-590547</a></div><div class="cath-sources"><strong>Public reporting</strong><a href="https://ekantipur.com/sudurpaschim-pradesh/2025/11/21/cath-lab-service-launched-in-the-far-west-20-12.html" rel="noopener noreferrer" target="_blank">Kantipur — Cath Lab launch, November 21, 2025</a><a href="https://healthnewsnepal.com/news/attariya-hospital-cathlab-service/" rel="noopener noreferrer" target="_blank">Health News Nepal — Cath Lab launch, November 22, 2025</a></div></div><aside class="detail-aside"><div class="side-card"><span class="eyebrow">ASK OUR TEAM</span><h3>Questions about this service?</h3><p>We can help you find the right hospital contact.</p><a class="btn btn-primary btn-block" href="tel:+97791590547">Call 091-590547</a><a class="phone-line" href="{{ url('/appointment') }}">Request appointment <i aria-hidden="true" data-lucide="arrow-up-right" style="width:15px;height:15px"></i></a></div></aside></div></section></main>
+    <main id="main">
+        <section class="page-banner">
+            <div class="container">
+                <div class="breadcrumbs"><a href="{{ url('/') }}">Home</a><i aria-hidden="true" data-lucide="chevron-right"
+                        style="width:15px;height:15px"></i><span>Services / Cath Lab</span></div><span
+                    class="eyebrow">ATTARIYA HOSPITAL</span>
+                <h1>Advanced Cardiac Cath Lab</h1>
+                <p>Cardiac catheterization service reported by news outlets; confirm current access and timing.</p>
+            </div>
+            <div class="banner-ring"></div>
+        </section>
+        <section class="section">
+            <div class="container detail-layout">
+                <div class="detail-main"><span class="eyebrow">SPECIALIZED CARDIAC CARE</span>
+                    <h2>Sudurpashchim’s first reported Cath Lab service</h2>
+                    <p>On November 21, 2025, Attariya Hospital introduced a cardiac catheterization laboratory, reported by
+                        national and regional news organizations as the first of its kind in Sudurpashchim Province.</p>
+                    <p>A Cath Lab is a specialized clinical facility used to diagnose and treat certain heart and
+                        blood-vessel conditions using catheter-based imaging and procedures. The most appropriate test or
+                        treatment depends on evaluation by a qualified medical team.</p>
+                    <div class="cath-detail-callout"><i aria-hidden="true" data-lucide="heart-pulse"></i>
+                        <div><strong>Cardiac procedures reported at launch</strong>
+                            <p>The services below were announced at the Cath Lab launch. Please confirm their current
+                                availability with the hospital before visiting.</p>
+                        </div>
+                    </div>
+                    <div class="cath-procedure-grid">
+                        <article><i aria-hidden="true" data-lucide="scan-line"></i>
+                            <h3>Coronary &amp; Peripheral Angiography</h3>
+                            <p>Catheter-based imaging to assess selected heart and blood vessels.</p>
+                        </article>
+                        <article><i aria-hidden="true" data-lucide="activity"></i>
+                            <h3>Angioplasty (PCI)</h3>
+                            <p>A catheter-based treatment option for certain narrowed or blocked coronary arteries.</p>
+                        </article>
+                        <article><i aria-hidden="true" data-lucide="heart"></i>
+                            <h3>Temporary Pacemaker</h3>
+                            <p>Short-term pacing support when clinically required.</p>
+                        </article>
+                        <article><i aria-hidden="true" data-lucide="heart-handshake"></i>
+                            <h3>Permanent Pacemaker</h3>
+                            <p>A cardiac rhythm device option for qualifying patients.</p>
+                        </article>
+                    </div>
+                    <h2>Plan your hospital visit</h2>
+                    <p>For specialist consultation, procedure suitability, preparation, schedules, and charges, contact the
+                        hospital directly. An online appointment request is not an emergency service or confirmed booking.
+                    </p>
+                    <div class="cath-detail-actions"><a class="btn btn-primary" href="{{ url('/appointment') }}">Request an
+                            appointment</a><a class="btn btn-secondary" href="tel:+97791590547">Call 091-590547</a></div>
+                    <div class="cath-sources"><strong>Public reporting</strong><a
+                            href="https://ekantipur.com/sudurpaschim-pradesh/2025/11/21/cath-lab-service-launched-in-the-far-west-20-12.html"
+                            rel="noopener noreferrer" target="_blank">Kantipur — Cath Lab launch, November 21, 2025</a><a
+                            href="https://healthnewsnepal.com/news/attariya-hospital-cathlab-service/"
+                            rel="noopener noreferrer" target="_blank">Health News Nepal — Cath Lab launch, November 22,
+                            2025</a></div>
+                </div>
+                <aside class="detail-aside">
+                    <div class="side-card"><span class="eyebrow">ASK OUR TEAM</span>
+                        <h3>Questions about this service?</h3>
+                        <p>We can help you find the right hospital contact.</p><a class="btn btn-primary btn-block"
+                            href="tel:+97791590547">Call 091-590547</a><a class="phone-line"
+                            href="{{ url('/appointment') }}">Request appointment <i aria-hidden="true"
+                                data-lucide="arrow-up-right" style="width:15px;height:15px"></i></a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
 @endsection
