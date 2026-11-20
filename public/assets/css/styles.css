@@ -6547,3 +6547,1511 @@ textarea:focus {
         font-size: 19px;
     }
 }
+
+
+/* =========================================
+   ATTARIYA HOSPITAL — HEALTH PACKAGES
+========================================= */
+
+/* BANNER */
+
+.ah-packages-banner {
+    position: relative;
+    padding: 75px 0;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 40, 67, .94) 0%,
+            rgba(7, 55, 89, .83) 52%,
+            rgba(5, 49, 79, .48) 100%
+        ),
+        url('/assets/images/packages-banner.jpg')
+        center / cover no-repeat;
+}
+
+.ah-packages-banner__content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+}
+
+.ah-packages-banner .eyebrow {
+    color: #9cddfb;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.ah-packages-banner h1 {
+    margin: 14px 0 16px;
+    font-size: clamp(30px, 3vw, 44px);
+    line-height: 1.2;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.ah-packages-banner h1 span {
+    color: #8cdbff;
+}
+
+.ah-packages-banner p {
+    max-width: 560px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #e4eef5;
+}
+
+.ah-packages-banner__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 26px;
+}
+
+.ah-packages-banner__actions .btn {
+    font-size: 13px;
+}
+
+.ah-packages-banner__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.ah-packages-banner__contact:hover {
+    color: #9cddfb;
+}
+
+/* PACKAGE SECTION */
+
+.ah-packages-section {
+    padding: 70px 0;
+}
+
+.ah-packages-heading {
+    margin-bottom: 30px;
+}
+
+.ah-packages-heading h2 {
+    font-size: clamp(25px, 2.5vw, 34px);
+    line-height: 1.25;
+}
+
+/* GRID */
+
+.ah-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* PACKAGE CARD */
+
+.ah-package-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #dceaf3;
+    border-radius: 16px;
+
+    box-shadow: 0 6px 20px rgba(14, 65, 103, .04);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.ah-package-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(14, 65, 103, .10);
+}
+
+/* IMAGE */
+
+.ah-package-card__media {
+    width: 100%;
+    height: 185px;
+    overflow: hidden;
+    background: #eaf5fb;
+}
+
+.ah-package-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ah-package-card__placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #e7f6fd,
+        #d8eefa
+    );
+
+    color: #087cb5;
+}
+
+.ah-package-card__placeholder svg {
+    width: 42px;
+    height: 42px;
+}
+
+.ah-package-card__placeholder span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+/* CONTENT */
+
+.ah-package-card__body {
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ah-package-card__label {
+    color: #087cb5;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    margin-bottom: 9px;
+}
+
+.ah-package-card__body h3 {
+    margin: 0 0 12px;
+    color: #103b59;
+    font-size: 19px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.ah-package-card__description {
+    margin: 0 0 18px;
+    color: #647c8d;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.ah-package-card__pricing {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    margin-bottom: 18px;
+}
+
+.ah-package-card__pricing strong {
+    font-size: 18px;
+    color: #087cb5;
+}
+
+.ah-package-card__pricing del {
+    font-size: 12px;
+    color: #91a3b0;
+}
+
+.ah-package-card__enquiry {
+    margin-top: auto;
+    margin-bottom: 18px;
+    color: #667f90;
+    font-size: 12px;
+}
+
+.ah-package-card__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    font-size: 13px;
+}
+
+/* EMPTY STATE */
+
+.ah-packages-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 55px 25px;
+
+    background: #ffffff;
+    border: 1px dashed #bfdce9;
+    border-radius: 16px;
+}
+
+.ah-packages-empty > svg {
+    width: 38px;
+    height: 38px;
+    color: #087cb5;
+    margin-bottom: 12px;
+}
+
+.ah-packages-empty h3 {
+    font-size: 21px;
+    color: #103b59;
+}
+
+.ah-packages-empty p {
+    font-size: 13px;
+    color: #647c8d;
+    margin-bottom: 20px;
+}
+
+/* TABLET */
+
+@media (max-width: 991px) {
+    .ah-packages-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ah-packages-banner {
+        min-height: 320px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .ah-packages-banner {
+        padding: 55px 0;
+        min-height: 290px;
+    }
+
+    .ah-packages-banner h1 {
+        font-size: 29px;
+    }
+
+    .ah-packages-banner p {
+        font-size: 13px;
+    }
+
+    .ah-packages-section {
+        padding: 50px 0;
+    }
+
+    .ah-packages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ah-package-card__media {
+        height: 200px;
+    }
+
+    .ah-package-card__body {
+        padding: 19px;
+    }
+
+    .ah-package-card__body h3 {
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ah-package-card {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   HEALTH PACKAGE — PREMIUM DETAIL PAGE
+========================================== */
+
+.ah-package-detail-banner {
+    position: relative;
+    padding: 72px 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 40, 67, .94),
+            rgba(7, 55, 89, .78),
+            rgba(5, 49, 79, .45)
+        ),
+        url('/assets/images/packages-banner.jpg')
+        center / cover no-repeat;
+}
+
+.ah-package-detail-banner .eyebrow {
+    color: #a9e1ff;
+    font-size: 11px;
+}
+
+.ah-package-detail-banner h1 {
+    max-width: 750px;
+    margin: 14px 0;
+    color: #ffffff;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.25;
+}
+
+.ah-package-detail-banner p {
+    max-width: 570px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #e0eef6;
+}
+
+.ah-package-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ah-package-detail-back:hover {
+    color: #a9e1ff;
+}
+
+.ah-package-detail-section {
+    background: #f5f9fc;
+}
+
+.ah-package-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    align-items: start;
+    gap: 30px;
+}
+
+.ah-package-detail-main {
+    min-width: 0;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e0eaf2;
+    border-radius: 18px;
+}
+
+.ah-package-detail-photo {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 13px;
+    margin-bottom: 28px;
+}
+
+.ah-package-detail-main h2 {
+    margin: 12px 0 16px;
+    color: #103b59;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+.ah-package-detail-intro,
+.ah-package-description {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #61798b;
+}
+
+.ah-package-tests {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e2edf4;
+}
+
+.ah-package-tests h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.ah-package-tests h2 svg {
+    width: 22px;
+    height: 22px;
+    color: #087cb5;
+}
+
+.ah-package-tests-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ah-package-tests-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 15px;
+    background: #f1f9fd;
+    border: 1px solid #e0eef5;
+    border-radius: 10px;
+    color: #294e64;
+    font-size: 13px;
+}
+
+.ah-package-tests-list li svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: #087cb5;
+}
+
+/* BOOKING SIDEBAR */
+
+.ah-package-booking {
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #dceaf3;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(12, 63, 99, .05);
+}
+
+.ah-package-booking__icon {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 18px;
+    background: #e5f5fc;
+    border-radius: 12px;
+    color: #087cb5;
+}
+
+.ah-package-booking__icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.ah-package-booking h2 {
+    margin: 0 0 18px;
+    font-size: 21px;
+    line-height: 1.4;
+    color: #103b59;
+}
+
+.ah-package-booking p {
+    color: #657d8e;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.ah-package-booking__price {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: #eaf7fd;
+}
+
+.ah-package-booking__price span {
+    font-size: 12px;
+    color: #647d8f;
+}
+
+.ah-package-booking__price strong {
+    font-size: 26px;
+    color: #087cb5;
+}
+
+.ah-package-booking__price del {
+    color: #96a9b6;
+    font-size: 13px;
+}
+
+.ah-package-booking__button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.ah-package-booking__contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    margin-top: 18px;
+    color: #087cb5;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+@media (max-width: 991px) {
+    .ah-package-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .ah-package-detail-banner {
+        padding: 50px 0;
+    }
+
+    .ah-package-detail-main,
+    .ah-package-booking {
+        padding: 20px;
+    }
+
+    .ah-package-tests-list {
+        grid-template-columns: 1fr;
+    }
+
+    .ah-package-detail-main h2 {
+        font-size: 21px;
+    }
+}
+
+
+
+/* =====================================
+   PREMIUM IMAGE DEPARTMENT CARDS
+===================================== */
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.ah-department-card {
+    overflow: hidden;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e0eaf2;
+    box-shadow: 0 7px 22px rgba(12, 64, 101, .05);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.ah-department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(12, 64, 101, .12);
+}
+
+.ah-department-card__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.ah-department-card__image {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background: #e9f4fb;
+}
+
+.ah-department-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .35s ease;
+}
+
+.ah-department-card:hover img {
+    transform: scale(1.05);
+}
+
+.ah-department-card__placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #eaf7fd, #d5edfa);
+    color: #087cb5;
+}
+
+.ah-department-card__placeholder svg {
+    width: 45px;
+    height: 45px;
+}
+
+.ah-department-card__content {
+    padding: 22px;
+}
+
+.ah-department-card__label {
+    color: #087cb5;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.ah-department-card__content h3 {
+    margin: 10px 0;
+    color: #123e5a;
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+.ah-department-card__content p {
+    color: #647d8d;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 17px;
+}
+
+.ah-department-card__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #087cb5;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ah-department-card__more svg {
+    width: 17px;
+    height: 17px;
+}
+
+@media (max-width: 991px) {
+    .departments-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .departments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ah-department-card__image {
+        height: 210px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ah-department-card,
+    .ah-department-card__image img {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   DEPARTMENT DETAIL — ATTARIYA HOSPITAL
+========================================== */
+
+.ah-department-banner {
+    position: relative;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 39, 65, .94),
+            rgba(7, 58, 92, .76),
+            rgba(7, 58, 92, .42)
+        ),
+        url('/assets/images/departments-banner.png')
+        center / cover no-repeat;
+}
+
+.ah-department-banner h1 {
+    color: #ffffff;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.25;
+}
+
+.ah-department-banner p {
+    max-width: 650px;
+    color: #e5f2f9;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.ah-department-banner .eyebrow {
+    color: #a3e2ff;
+}
+
+.ah-department-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+    color: #dbeef9;
+    font-size: 12px;
+}
+
+.ah-department-breadcrumb a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.ah-department-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.ah-department-breadcrumb svg {
+    width: 13px;
+    height: 13px;
+}
+
+/* MAIN LAYOUT */
+
+.ah-department-details {
+    background: #f5f9fc;
+}
+
+.ah-department-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 28px;
+    align-items: start;
+}
+
+.ah-department-main {
+    min-width: 0;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e1ebf2;
+    border-radius: 18px;
+}
+
+.ah-department-detail-image {
+    height: 360px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 13px;
+    background: #eaf5fb;
+}
+
+.ah-department-detail-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ah-department-image-placeholder {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: #087cb5;
+    background: linear-gradient(
+        135deg,
+        #e7f5fc,
+        #d6eefa
+    );
+}
+
+.ah-department-image-placeholder svg {
+    width: 52px;
+    height: 52px;
+}
+
+.ah-department-about h2 {
+    margin: 12px 0 18px;
+    font-size: 25px;
+    line-height: 1.4;
+    color: #113e5b;
+}
+
+.ah-department-description,
+.ah-department-about p {
+    color: #617a8c;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* SIDEBAR */
+
+.ah-department-sidebar {
+    display: grid;
+    gap: 22px;
+}
+
+.ah-department-sidebar-card {
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e1ebf2;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 66, 102, .04);
+}
+
+.ah-department-sidebar-icon {
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 17px;
+    border-radius: 12px;
+    background: #e7f5fc;
+    color: #087cb5;
+}
+
+.ah-department-sidebar-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.ah-department-sidebar-card h3 {
+    margin: 0 0 12px;
+    color: #113e5b;
+    font-size: 19px;
+}
+
+.ah-department-sidebar-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #627b8d;
+}
+
+.ah-department-appointment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 18px;
+    font-size: 13px;
+}
+
+.ah-department-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 18px;
+    color: #087cb5;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ah-department-quick-links {
+    display: grid;
+    gap: 8px;
+}
+
+.ah-department-quick-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 9px;
+    background: #f1f8fc;
+    color: #294e66;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.ah-department-quick-links a:hover {
+    background: #e1f2fb;
+    color: #087cb5;
+}
+
+.ah-department-quick-links svg {
+    width: 17px;
+    height: 17px;
+    color: #087cb5;
+}
+
+/* DOCTORS */
+
+.ah-department-doctors {
+    background: #f0f7fb;
+}
+
+.ah-department-no-doctors {
+    text-align: center;
+    padding: 50px 25px;
+    background: #ffffff;
+    border: 1px dashed #c4dfec;
+    border-radius: 15px;
+}
+
+.ah-department-no-doctors > svg {
+    width: 36px;
+    height: 36px;
+    color: #087cb5;
+    margin-bottom: 14px;
+}
+
+.ah-department-no-doctors h3 {
+    font-size: 20px;
+    color: #123e5a;
+}
+
+.ah-department-no-doctors p {
+    color: #627b8d;
+    font-size: 13px;
+}
+
+/* BOTTOM CTA */
+
+.ah-department-bottom-cta {
+    padding: 45px 0;
+    background: linear-gradient(
+        120deg,
+        #075580,
+        #087cb5
+    );
+}
+
+.ah-department-bottom-cta .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.ah-department-bottom-cta span {
+    color: #b8e8ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.ah-department-bottom-cta h2 {
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: clamp(22px, 2.7vw, 31px);
+}
+
+.ah-department-bottom-cta p {
+    color: #e4f3fb;
+    font-size: 13px;
+}
+
+.ah-department-bottom-cta .btn {
+    flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+    .ah-department-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .ah-department-main {
+        padding: 17px;
+    }
+
+    .ah-department-detail-image {
+        height: 235px;
+    }
+
+    .ah-department-about h2 {
+        font-size: 22px;
+    }
+
+    .ah-department-sidebar-card {
+        padding: 20px;
+    }
+
+    .ah-department-bottom-cta .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+/* ==========================================
+   ATTARIYA HOSPITAL — PREMIUM NEWS DETAIL
+========================================== */
+
+/* NEWS BANNER */
+
+.ah-news-banner {
+    position: relative;
+    background: linear-gradient(
+        120deg,
+        #073250 0%,
+        #075780 55%,
+        #0784b8 100%
+    );
+    padding: 65px 0;
+    overflow: hidden;
+}
+
+.ah-news-banner .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #b6e8fc;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+}
+
+.ah-news-banner .eyebrow svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ah-news-banner h1 {
+    max-width: 850px;
+    margin: 17px 0 19px;
+    font-size: clamp(26px, 3vw, 40px);
+    line-height: 1.3;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.ah-news-banner__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #e3f3fa;
+    font-size: 13px;
+}
+
+.ah-news-banner__meta span,
+.ah-news-article__meta span,
+.ah-news-article__meta time {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.ah-news-banner__meta svg,
+.ah-news-article__meta svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ah-news-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 23px;
+    font-size: 12px;
+    color: #d7eefa;
+}
+
+.ah-news-breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.ah-news-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.ah-news-breadcrumb svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* MAIN LAYOUT */
+
+.ah-news-detail-section {
+    padding: 65px 0;
+    background: #f4f9fc;
+}
+
+.ah-news-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+/* LEFT SIDEBAR */
+
+.ah-news-sidebar {
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e0ebf2;
+    border-radius: 17px;
+    padding: 23px;
+    box-shadow: 0 8px 26px rgba(10, 59, 94, .04);
+    position: sticky;
+    top: 100px;
+}
+
+.ah-news-sidebar__header {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e6eef4;
+}
+
+.ah-news-sidebar__header .eyebrow {
+    font-size: 10px;
+}
+
+.ah-news-sidebar__header h2 {
+    margin: 9px 0;
+    color: #103b58;
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.ah-news-sidebar__header p {
+    margin: 0;
+    color: #698092;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.ah-news-sidebar__list {
+    display: grid;
+    gap: 0;
+}
+
+.ah-related-news {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 17px 0;
+    border-bottom: 1px solid #edf1f5;
+    text-decoration: none;
+    color: inherit;
+}
+
+.ah-related-news__image {
+    display: grid;
+    place-items: center;
+    width: 78px;
+    height: 70px;
+    flex: 0 0 78px;
+    overflow: hidden;
+    border-radius: 9px;
+    background: #e8f5fc;
+    color: #087cb5;
+}
+
+.ah-related-news__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ah-related-news__image svg {
+    width: 25px;
+    height: 25px;
+}
+
+.ah-related-news__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.ah-related-news__content time {
+    display: block;
+    margin-bottom: 6px;
+    color: #8297a5;
+    font-size: 10px;
+}
+
+.ah-related-news__content h3 {
+    margin: 0 0 7px;
+    color: #123f5b;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.ah-related-news:hover h3 {
+    color: #087cb5;
+}
+
+.ah-related-news__content span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #087cb5;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ah-related-news__content span svg {
+    width: 13px;
+    height: 13px;
+}
+
+.ah-news-sidebar__all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #d7eaf4;
+    border-radius: 10px;
+    color: #087cb5;
+    background: #f0f9fe;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.ah-news-sidebar__all:hover {
+    background: #087cb5;
+    color: #fff;
+}
+
+.ah-news-sidebar__all svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ah-related-news__empty {
+    padding: 25px 8px;
+    text-align: center;
+    color: #718696;
+    font-size: 12px;
+}
+
+.ah-related-news__empty svg {
+    width: 28px;
+    height: 28px;
+    color: #087cb5;
+    margin-bottom: 10px;
+}
+
+/* MAIN ARTICLE */
+
+.ah-news-article {
+    min-width: 0;
+    padding: 28px;
+    background: #fff;
+    border: 1px solid #e0ebf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 26px rgba(10, 59, 94, .04);
+}
+
+.ah-news-article__figure {
+    margin: 0 0 28px;
+}
+
+.ah-news-article__figure img {
+    display: block;
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    border-radius: 13px;
+}
+
+.ah-news-article__figure figcaption {
+    margin-top: 9px;
+    color: #879aa8;
+    font-size: 11px;
+}
+
+.ah-news-article__category {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    border-radius: 7px;
+    background: #e8f6fd;
+    color: #087cb5;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ah-news-article__category svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ah-news-article__header h2 {
+    margin: 17px 0;
+    color: #103b58;
+    font-size: clamp(22px, 2.4vw, 31px);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.ah-news-article__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #e6eef4;
+    font-size: 12px;
+    color: #718798;
+}
+
+.ah-news-article__excerpt {
+    margin: 27px 0;
+    padding: 21px 23px;
+    border-left: 4px solid #087cb5;
+    border-radius: 0 11px 11px 0;
+    background: #f0f8fc;
+    color: #31566d;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.85;
+}
+
+.ah-news-article__body {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.95;
+    color: #405b6f;
+    overflow-wrap: anywhere;
+}
+
+.ah-news-article__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid #e6eef4;
+}
+
+.ah-news-article__footer-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+    background: #f1f9fd;
+    border-radius: 10px;
+    color: #617d8f;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.ah-news-article__footer-info svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #087cb5;
+}
+
+.ah-news-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    align-self: flex-start;
+    color: #087cb5;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.ah-news-back:hover {
+    text-decoration: underline;
+}
+
+.ah-news-back svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* BOTTOM CONTACT CTA */
+
+.ah-news-bottom-cta {
+    padding: 45px 0;
+    background: linear-gradient(110deg, #064a75, #087cb5);
+}
+
+.ah-news-bottom-cta .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.ah-news-bottom-cta span {
+    color: #bceaff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.ah-news-bottom-cta h2 {
+    margin: 9px 0;
+    color: #fff;
+    font-size: clamp(22px, 2.6vw, 30px);
+}
+
+.ah-news-bottom-cta p {
+    margin: 0;
+    color: #e3f2fa;
+    font-size: 13px;
+}
+
+.ah-news-bottom-cta .btn {
+    flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+    .ah-news-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .ah-news-sidebar {
+        order: 2;
+    }
+
+    .ah-news-article {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .ah-news-banner {
+        padding: 45px 0;
+    }
+
+    .ah-news-detail-section {
+        padding: 35px 0;
+    }
+
+    .ah-news-article {
+        padding: 18px;
+    }
+
+    .ah-news-sidebar {
+        padding: 19px;
+    }
+
+    .ah-news-article__figure img {
+        max-height: 260px;
+    }
+
+    .ah-news-article__excerpt {
+        padding: 16px;
+    }
+
+    .ah-news-bottom-cta .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

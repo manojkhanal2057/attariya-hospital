@@ -281,17 +281,33 @@ public function home()
     // ==========================================
     // SINGLE NEWS POST
     // ==========================================
-    public function newsPost(string $slug)
-    {
-        return view('dynamic.news-show', [
-            'post' => NewsPost::where('slug', $slug)
-                ->where('is_published', true)
-                ->where('published_at', '<=', now())
-                ->firstOrFail(),
+// ==========================================
+// SINGLE NEWS POST WITH RELATED NEWS
+// ==========================================
+public function newsPost(string $slug)
+{
+    $post = NewsPost::query()
+        ->where('slug', $slug)
+        ->where('is_published', true)
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->firstOrFail();
 
-            'title' => 'News | Attariya Hospital',
-        ]);
-    }
+    $relatedNews = NewsPost::query()
+        ->where('id', '!=', $post->id)
+        ->where('is_published', true)
+        ->whereNotNull('published_at')
+        ->where('published_at', '<=', now())
+        ->latest('published_at')
+        ->limit(5)
+        ->get();
+
+    return view('dynamic.news-show', [
+        'post' => $post,
+        'relatedNews' => $relatedNews,
+        'title' => $post->title . ' | Attariya Hospital',
+    ]);
+}
 
     // ==========================================
     // STATIC PAGES

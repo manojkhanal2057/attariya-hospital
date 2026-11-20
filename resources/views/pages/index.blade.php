@@ -23,8 +23,8 @@
                 </div>
                 <div class="hero-visual">
                     <div class="hero-image"
-                        style="background-image:url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&amp;fit=crop&amp;w=1300&amp;q=85')">
-                        <span class="demo-tag">Illustrative photo</span></div>
+                        style="background-image:url('/assets/images/home.png')">
+                       </div>
                     <div class="hero-badge"><span class="hero-badge-icon"><i aria-hidden="true"
                                 data-lucide="heart-handshake" style="width:26px;height:26px"></i></span>
                         <div><strong>Care that feels close</strong><small>Attariya, Kailali</small></div>
@@ -92,8 +92,7 @@
                 <div class="image-stack">
                     <div class="photo-frame about-picture"><img alt="Illustrative modern hospital interior"
                             loading="lazy"
-                            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" /><span
-                            class="demo-tag">Illustrative photo</span></div>
+                            src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" /></div>
                     <div class="image-floating"><span class="small-cross"><i aria-hidden="true" data-lucide="plus"
                                 style="width:22px;height:22px"></i></span><strong>Rooted in our
                             community</strong><small>Attariya • Kailali</small></div>
@@ -160,8 +159,7 @@
                 </div>
                 <div class="photo-frame feature-picture"><img alt="Illustrative healthcare team discussing patient care"
                         loading="lazy"
-                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" /><span
-                        class="demo-tag">Illustrative photo</span></div>
+                        src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" /></div>
             </div>
         </section>
         {{-- Doctors carousel: uses existing doctor-card partial --}}
@@ -235,8 +233,7 @@
         <section class="section facility-feature">
             <div class="container facility-feature-grid">
                 <div class="photo-frame"><img alt="Illustrative view of a modern medical facility" loading="lazy"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoWolgsFj1tqhPDh2tmmVksNaGCJs4dk5_HV-b6mc5eyf9msKkiS2YX3A&s=10" /><span
-                        class="demo-tag">Illustrative photo</span></div>
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoWolgsFj1tqhPDh2tmmVksNaGCJs4dk5_HV-b6mc5eyf9msKkiS2YX3A&s=10" /></div>
                 <div><span class="eyebrow">FACILITIES &amp; TECHNOLOGY</span>
                     <h2>Healthcare with a focus on progress.</h2>
                     <p>Public health reporting has described the hospital’s Cath Lab service. Explore key hospital services

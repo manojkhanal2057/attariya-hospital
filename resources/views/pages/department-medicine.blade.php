@@ -1,4 +1,53 @@
 @extends('layouts.site')
 @section('content')
-<main id="main"><section class="page-banner"><div class="container"><div class="breadcrumbs"><a href="{{ url('/') }}">Home</a><i aria-hidden="true" data-lucide="chevron-right" style="width:15px;height:15px"></i><span>Departments / General Medicine</span></div><span class="eyebrow">ATTARIYA HOSPITAL</span><h1>General Medicine</h1><p>Consultation for a wide range of health concerns.</p></div><div class="banner-ring"></div></section><section class="section"><div class="container detail-layout"><div class="detail-main"><span class="eyebrow">MEDICAL DEPARTMENT</span><h2>About General Medicine</h2><p>Consultation for a wide range of health concerns.</p><div class="detail-highlight"><i aria-hidden="true" data-lucide="stethoscope" style="width:36px;height:36px"></i><div><strong>Have a question about this department?</strong><p>Call the hospital to check consultation schedules and service details.</p></div></div><h3>Related medical professionals</h3><div class="doctor-grid"><article class="doctor-card"><div class="doctor-avatar"><i aria-hidden="true" data-lucide="user-round" style="width:57px;height:57px"></i><span class="avatar-label">Profile photo pending</span></div><div class="doctor-content"><span class="doctor-kicker">MEDICAL PROFESSIONAL</span><h3>Dr. Parssh Mani Bhatta</h3><p>General Physician</p><a class="doc-link" href="{{ url('/doctor-dr-parssh-mani-bhatta') }}">View profile <i aria-hidden="true" data-lucide="arrow-up-right" style="width:16px;height:16px"></i></a></div></article></div></div><aside class="detail-aside"><div class="side-card"><span class="eyebrow">PLAN YOUR VISIT</span><h3>Need an appointment?</h3><p>Contact the hospital to confirm availability and timing.</p><a class="btn btn-primary btn-block" href="{{ url('/appointment') }}">Request appointment</a><a class="phone-line" href="tel:+97791590547"><i aria-hidden="true" data-lucide="phone" style="width:17px;height:17px"></i> 091-590547</a></div><a class="back-link" href="{{ url('/departments') }}"><i aria-hidden="true" data-lucide="arrow-left" style="width:17px;height:17px"></i> All departments</a></aside></div></section></main>
+    <main id="main">
+        <section class="page-banner">
+            <div class="container">
+                <div class="breadcrumbs"><a href="{{ url('/') }}">Home</a><i aria-hidden="true" data-lucide="chevron-right"
+                        style="width:15px;height:15px"></i><span>Departments / General Medicine</span></div><span
+                    class="eyebrow">ATTARIYA HOSPITAL</span>
+                <h1>General Medicine</h1>
+                <p>Consultation for a wide range of health concerns.</p>
+            </div>
+            <div class="banner-ring"></div>
+        </section>
+        <section class="section">
+            <div class="container detail-layout">
+                <div class="detail-main"><span class="eyebrow">MEDICAL DEPARTMENT</span>
+                    <h2>About General Medicine</h2>
+                    <p>Consultation for a wide range of health concerns.</p>
+                    <div class="detail-highlight"><i aria-hidden="true" data-lucide="stethoscope"
+                            style="width:36px;height:36px"></i>
+                        <div><strong>Have a question about this department?</strong>
+                            <p>Call the hospital to check consultation schedules and service details.</p>
+                        </div>
+                    </div>
+                    <h3>Related medical professionals</h3>
+                    <div class="doctor-grid">
+                        <article class="doctor-card">
+                            <div class="doctor-avatar"><i aria-hidden="true" data-lucide="user-round"
+                                    style="width:57px;height:57px"></i><span class="avatar-label">Profile photo
+                                    pending</span></div>
+                            <div class="doctor-content"><span class="doctor-kicker">MEDICAL PROFESSIONAL</span>
+                                <h3>Dr. Parssh Mani Bhatta</h3>
+                                <p>General Physician</p><a class="doc-link"
+                                    href="{{ url('/doctor-dr-parssh-mani-bhatta') }}">View profile <i aria-hidden="true"
+                                        data-lucide="arrow-up-right" style="width:16px;height:16px"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <aside class="detail-aside">
+                    <div class="side-card"><span class="eyebrow">PLAN YOUR VISIT</span>
+                        <h3>Need an appointment?</h3>
+                        <p>Contact the hospital to confirm availability and timing.</p><a class="btn btn-primary btn-block"
+                            href="{{ url('/appointment') }}">Request appointment</a><a class="phone-line"
+                            href="tel:+97791590547"><i aria-hidden="true" data-lucide="phone"
+                                style="width:17px;height:17px"></i> 091-590547</a>
+                    </div><a class="back-link" href="{{ url('/departments') }}"><i aria-hidden="true"
+                            data-lucide="arrow-left" style="width:17px;height:17px"></i> All departments</a>
+                </aside>
+            </div>
+        </section>
+    </main>
 @endsection

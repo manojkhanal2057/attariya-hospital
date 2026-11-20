@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\HealthPackage;
     use Illuminate\Support\Carbon;
 
 use App\Http\Controllers\{
@@ -88,24 +89,57 @@ Route::post('/contact', [ContactController::class, 'store'])
     ->name('contacts.store');
 
 
- // Health Packages - frontend preview
+
+/*
+|--------------------------------------------------------------------------
+| HEALTH PACKAGES — DATABASE DRIVEN
+|--------------------------------------------------------------------------
+*/
+
+// Package listing
 Route::get('/packages', function () {
+
+    $packages = HealthPackage::query()
+        ->latest('id')
+        ->get();
+
     return view('pages.packages', [
-        'packages' => array_values(config('health_packages', [])),
+        'packages' => $packages,
         'title' => 'Health Packages | Attariya Hospital',
     ]);
+
 })->name('packages.index');
 
-Route::get('/packages/{slug}', function (string $slug) {
-    $package = config("health_packages.{$slug}");
 
-    abort_unless($package, 404);
+// Package detail
+Route::get('/packages/{slug}', function (string $slug) {
+
+    $package = HealthPackage::query()
+        ->where('slug', $slug)
+        ->firstOrFail();
 
     return view('packages.show', [
         'package' => $package,
-        'title' => $package['name'] . ' | Attariya Hospital',
+        'title' => $package->name . ' | Attariya Hospital',
     ]);
+
 })->name('packages.show');
+
+
+
+Route::get('/packages/{slug}', function (string $slug) {
+
+    $package = HealthPackage::query()
+        ->where('slug', $slug)
+        ->firstOrFail();
+
+    return view('packages.show', [
+        'package' => $package,
+        'title' => $package->name . ' | Attariya Hospital',
+    ]);
+
+})->name('packages.show');
+
 
 // ==========================================
 // NOTICES
